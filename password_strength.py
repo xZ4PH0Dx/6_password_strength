@@ -11,7 +11,8 @@ def load_blacklist(filepath):
 
 
 def has_appropriate_len(password):
-    return True if len(password) > 7 else False
+    good_passwd_len = 7
+    return True if len(password) > good_passwd_len else False
 
 
 def has_numbers(password):
@@ -44,13 +45,14 @@ def hasnt_date(password):
 def get_password_strength(password, blacklisted_words):
     extra_point = 2
     score = 0
-    score = sum((has_appropriate_len(password) * extra_point,
-                 has_numbers(password),
-                 has_upper(password) * extra_point,
-                 has_lower(password),
-                 has_special_char(password) * extra_point,
-                 hasnt_blacklisted_words(password, blacklisted_words),
-                 hasnt_date(password)))
+    score = sum((
+                has_appropriate_len(password) * extra_point,
+                has_numbers(password),
+                has_upper(password) * extra_point,
+                has_lower(password),
+                has_special_char(password) * extra_point,
+                hasnt_blacklisted_words(password, blacklisted_words),
+                hasnt_date(password)))
     return score
 
 
