@@ -46,13 +46,14 @@ def get_password_strength(password, blacklisted_words):
     extra_point = 2
     score = 0
     score = sum((
-                has_appropriate_len(password) * extra_point,
-                has_numbers(password),
-                has_upper(password) * extra_point,
-                has_lower(password),
-                has_special_char(password) * extra_point,
-                hasnt_blacklisted_words(password, blacklisted_words),
-                hasnt_date(password)))
+        has_appropriate_len(password) * extra_point,
+        has_numbers(password),
+        has_upper(password) * extra_point,
+        has_lower(password),
+        has_special_char(password) * extra_point,
+        hasnt_blacklisted_words(password, blacklisted_words),
+        hasnt_date(password))
+    )
     return score
 
 
